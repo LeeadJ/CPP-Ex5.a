@@ -42,6 +42,8 @@ namespace ariel{
             };
             
             //Iterator Functions:
+            iterator begin();
+            iterator end();
             iterator begin_level_order() const;
             iterator end_level_order() const;
 

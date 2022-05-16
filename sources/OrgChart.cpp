@@ -5,7 +5,7 @@ namespace ariel{
     OrgChart::OrgChart(){} //initialization with no arguments
 
     //Functions:
-    OrgChart& OrgChart::addRoot(const std::string& root){
+    OrgChart& OrgChart::add_root(const std::string& root){
         return *this;
     }
     OrgChart& OrgChart::add_sub(const std::string& parent, const std::string& child){
@@ -39,6 +39,12 @@ namespace ariel{
     }
 
     //Iterator Functions:
+    iterator begin(){
+        return OrgChart::iterator(); 
+    }
+    iterator end(){
+        return OrgChart::iterator();
+    }
     iterator OrgChart::begin_level_order() const{
         return OrgChart::iterator();
     }
