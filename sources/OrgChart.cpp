@@ -17,8 +17,9 @@ namespace ariel{
     }
 
     //Iterator Functions:
-    int OrgChart::iterator::size(){
-        return this->_size;
+    std::string OrgChart::iterator::size(){
+        std::string ans = std::to_string(this->_size);
+        return ans;
     }
 
     //Iterator Operators:
@@ -28,14 +29,15 @@ namespace ariel{
     bool OrgChart::iterator::operator == (iterator& itr_other){
         return false;
     }
-    OrgChart::iterator OrgChart::iterator::operator * (){
-        return *this;
+    std::string OrgChart::iterator::operator * (){
+        return "";
     }
     OrgChart::iterator OrgChart::iterator::operator ++ (){
         return *this;
     }
-    OrgChart::iterator* OrgChart::iterator::operator -> (){
-        return this;
+    std::string* OrgChart::iterator::operator -> (){
+        std::string* temp;
+        return temp;
     }
 
     //OrgChart Functions:

@@ -21,12 +21,12 @@ namespace ariel{
                     iterator();
 
                     //iterator Functions:
-                    int size();
+                    std::string size();
                     bool operator != (const iterator& itr_other);
                     bool operator == (iterator& itr_other);
                     iterator operator ++ ();
-                    iterator* operator -> ();
-                    iterator operator * ();
+                    std::string* operator -> ();
+                    std::string operator * ();
                     
                  
             };
