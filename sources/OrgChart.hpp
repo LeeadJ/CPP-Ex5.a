@@ -19,7 +19,7 @@ namespace ariel{
             ~OrgChart();
 
             //Functions:
-            OrgChart& addRoot(const std::string& root);
+            OrgChart& add_root(const std::string& root);
             OrgChart& add_sub(const std::string& parent, const std::string& child);
             friend std::ostream& operator << (std::ostream& out, const OrgChart& chart);
 
