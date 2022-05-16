@@ -1,59 +1,51 @@
 #pragma once
-#include<iostream>
-#include<vector>
-#include<string>
-#include "Node.hpp"
+#include <iostream>
+#include <string>
+#include <vector>
+
 
 namespace ariel{
     class OrgChart{
-        std::vector<Node*> _chartNodes;
-
+        private:
+            std::vector<int> _chartNodes;
         public:
-            //Getters:
-            std::vector<Node*> getChartNodes() {return this->_chartNodes;}
+            //Constructor:
+            OrgChart();
 
-            //Constructors:
-            OrgChart(); //initialization with no arguments
-
-            //Destructor:
-            ~OrgChart();
-
-            //Functions:
-            OrgChart& add_root(const std::string& root);
-            OrgChart& add_sub(const std::string& parent, const std::string& child);
-            friend std::ostream& operator << (std::ostream& out, const OrgChart& chart);
-
-            //Iterator
+            //Class iterator:
             class iterator{
-                int _size;
-
                 public:
-                    //Constructor
+                    int _size;
+
+                    //Constructor:
                     iterator();
 
-                    //Functions:
-                    int size() const {return this->_size;}
-                    bool operator != (const iterator& other) const;
-                    bool operator == (const iterator& other) const;
-                    std::string* operator -> (); //returns a pointer
-                    std::string* operator * (); //returns the value of the string
-                    iterator& operator ++ (); 
-                    iterator& operator ++ (int);
+                    //iterator Functions:
+                    int size();
+                    bool operator != (const iterator& itr_other);
+                    bool operator == (iterator& itr_other);
+                    iterator operator ++ ();
+                    iterator* operator -> ();
+                    iterator operator * ();
+                    
+                 
             };
-            
-            //Iterator Functions:
+            OrgChart& add_root(const std::string& root);
+            OrgChart& add_sub(const std::string& parent,const std::string& child);
+
             iterator begin();
             iterator end();
+
             iterator begin_level_order() const;
             iterator end_level_order() const;
 
             iterator begin_reverse_order() const;
-            iterator end_reverse_order() const;
+            iterator reverse_order() const;
 
             iterator begin_preorder() const;
             iterator end_preorder() const;
 
-            friend std::ostream& operator << (const std::ostream& out, const iterator& itr);
-
+            friend std::ostream& operator << (std::ostream& out, OrgChart& chart);
+            friend std::ostream& operator << (std::ostream& out, const iterator& itr);
     };
 }

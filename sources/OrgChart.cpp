@@ -1,72 +1,86 @@
 #include "OrgChart.hpp"
+#include<string>
+#include<iostream>
+
+
+
 
 namespace ariel{
-    //Constructors:
-    OrgChart::OrgChart(){} //initialization with no arguments
 
-    //Functions:
-    OrgChart& OrgChart::add_root(const std::string& root){
-        return *this;
-    }
-    OrgChart& OrgChart::add_sub(const std::string& parent, const std::string& child){
-        return *this;
-    }
-    std::ostream& operator << (std::ostream& out, const OrgChart& chart){
-        return out;
-    }
+    //OrgChart Constructor:
+    OrgChart::OrgChart(){}
 
-    //Iterator:
-    OrgChart::iterator::iterator(){};
-    bool  OrgChart::iterator::operator != (const iterator& other) const{
-        return true;
-    }
-    bool  OrgChart::iterator::operator == (const iterator& other) const{
-        return true;
-    }
-    std::string* OrgChart::iterator::operator -> (){
-        std::string* test;
-        return test;
-    }
-    std::string* OrgChart::iterator::operator * (){
-        std::string* test;
-        return test;
-    }
-    iterator& OrgChart::iterator::operator ++ (){
-        return OrgChart::iterator();
-    }
-    iterator& OrgChart::iterator::operator ++ (int){
-        return OrgChart::iterator();
+    //Class iterator:
+    //Constructor:
+    OrgChart::iterator::iterator(){
+        this->_size=0;
     }
 
     //Iterator Functions:
-    iterator begin(){
-        return OrgChart::iterator(); 
+    int OrgChart::iterator::size(){
+        return this->_size;
     }
-    iterator end(){
+
+    //Iterator Operators:
+    bool OrgChart::iterator::operator != (const OrgChart::iterator& itr_other){
+        return false;
+    }
+    bool OrgChart::iterator::operator == (iterator& itr_other){
+        return false;
+    }
+    OrgChart::iterator OrgChart::iterator::operator * (){
+        return *this;
+    }
+    OrgChart::iterator OrgChart::iterator::operator ++ (){
+        return *this;
+    }
+    OrgChart::iterator* OrgChart::iterator::operator -> (){
+        return this;
+    }
+
+    //OrgChart Functions:
+    OrgChart& OrgChart::add_root(const std::string& root){
+        return *this;
+        }
+    OrgChart& OrgChart::add_sub(const std::string& parent,const std::string& child){
+        return *this;
+    }
+
+    OrgChart::iterator OrgChart::begin(){
         return OrgChart::iterator();
     }
-    iterator OrgChart::begin_level_order() const{
-        return OrgChart::iterator();
-    }
-    iterator OrgChart::end_level_order() const{
+    OrgChart::iterator OrgChart::end(){
         return OrgChart::iterator();
     }
 
-    iterator OrgChart::begin_reverse_order() const{
+    OrgChart::iterator OrgChart::begin_level_order() const{
         return OrgChart::iterator();
     }
-    iterator OrgChart::end_reverse_order() const{
-        return OrgChart::iterator();
-    }
-
-    iterator OrgChart::begin_preorder() const{
-        return OrgChart::iterator();
-    }
-    iterator OrgChart::end_preorder() const{
+    OrgChart::iterator OrgChart::end_level_order() const{
         return OrgChart::iterator();
     }
 
-    std::ostream& operator << (const std::ostream& out, const iterator& itr){
+    OrgChart::iterator OrgChart::begin_reverse_order() const{
+        return OrgChart::iterator();
+    }
+    OrgChart::iterator OrgChart::reverse_order() const{
+        return OrgChart::iterator();
+    }
+
+    OrgChart::iterator OrgChart::begin_preorder() const{
+        return OrgChart::iterator();
+    }
+    OrgChart::iterator OrgChart::end_preorder() const{
+        return OrgChart::iterator();
+    }
+
+    std::ostream& operator << (std::ostream& out, OrgChart& chart){
         return out;
     }
+    std::ostream& operator << (std::ostream& out, const OrgChart::iterator& itr){
+        return out;
+    }
+    
+    
+    
 }
