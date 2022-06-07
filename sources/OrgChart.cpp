@@ -1,6 +1,6 @@
 #include "OrgChart.hpp"
-#include<string>
-#include<iostream>
+#include <string>
+#include <iostream>
 
 
 
@@ -82,7 +82,4 @@ namespace ariel{
     std::ostream& operator << (std::ostream& out, const OrgChart::iterator& itr){
         return out;
     }
-    
-    
-    
 }

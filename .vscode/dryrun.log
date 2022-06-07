@@ -1,8 +1,9 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/c/Users/Leead/Desktop/CPP-Projects/CPP-Ex5.a'
 clang++-9  -std=c++2a -Werror -Wsign-conversion -Isources --compile Demo.cpp -o Demo.o
+clang++-9  -std=c++2a -Werror -Wsign-conversion -Isources --compile sources/Node.cpp -o objects/Node.o
 clang++-9  -std=c++2a -Werror -Wsign-conversion -Isources --compile sources/OrgChart.cpp -o objects/OrgChart.o
-clang++-9  -std=c++2a -Werror -Wsign-conversion -Isources Demo.o objects/OrgChart.o -o demo
+clang++-9  -std=c++2a -Werror -Wsign-conversion -Isources Demo.o objects/Node.o objects/OrgChart.o -o demo
 ./demo
 make: Leaving directory '/mnt/c/Users/Leead/Desktop/CPP-Projects/CPP-Ex5.a'
  

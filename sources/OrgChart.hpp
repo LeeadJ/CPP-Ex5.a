@@ -1,7 +1,9 @@
 #pragma once
+#include "Node.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
+
 
 
 namespace ariel{
